@@ -66,16 +66,17 @@ def calc_low_pass_sla(pass_time, pass_sla):
 
 
 
-DIR_DATA = '/glade/scratch/lgchen/data/OISSH_NOAA/2000-2022_fromEric'
+# DIR_DATA = '/glade/scratch/lgchen/data/OISSH_NOAA/2000-2022_fromEric'  # no longer exist
+DIR_DATA = '/glade/u/home/lgchen/umcp0014/lgchen/OISSH_JEDI_DATA/2000-2022_fromEric'
 
 missions = ['j1', 'j2', 'j3']
-jday_20020115 = datetime.date(2002,  1, 15)
-jday_20100607 = datetime.date(2010,  6,  7)
-jday_20101231 = datetime.date(2010, 12, 31)
-jday_20221231 = datetime.date(2022, 12, 31)
+# jday_20020115 = datetime.date(2002,  1, 15)
+jday_20150701 = datetime.date(2015,  7,  1)
+jday_20150702 = datetime.date(2015,  7,  2)
+# jday_20221231 = datetime.date(2022, 12, 31)
 
-jday = jday_20100607
-while jday <= jday_20101231:  # jday_20221231
+jday = jday_20150701
+while jday <= jday_20150701:  # jday_20221231
     str_date = jday.strftime('%Y%m%d')
     print('current date: ', str_date)
 

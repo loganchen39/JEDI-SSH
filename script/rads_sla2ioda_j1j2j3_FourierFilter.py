@@ -22,13 +22,20 @@ import datetime
 import dateutil.parser
 from pathlib import Path
 
-IODA_CONV_PATH = Path(__file__).parent/"../../build/lib/pyiodaconv"
+# IODA_CONV_PATH = Path(__file__).parent/"../../build/lib/pyiodaconv"
+IODA_CONV_PATH = Path(__file__).parent/"../../JEDI-SSH_Derecho/v02/build/lib/pyiodaconv"
+# IODA_CONV_PATH = Path(__file__).parent/"../../OISSH_JEDI/build/lib/pyiodaconv"
+print('IODA_CONV_PATH=', IODA_CONV_PATH)
 if not IODA_CONV_PATH.is_dir():
     IODA_CONV_PATH = Path(__file__).parent/'..'/'lib-python'
+    print('IODA_CONV_PATH=', IODA_CONV_PATH)
 sys.path.append(str(IODA_CONV_PATH.resolve()))
 
 # IODA_PATH = Path(__file__).parent/"../lib/python3.9/pyioda"
-IODA_PATH = Path(__file__).parent/"../../build/lib/python3.9/pyioda"
+# IODA_PATH = Path(__file__).parent/"../../build/lib/python3.9/pyioda"
+IODA_PATH = Path(__file__).parent/"../../JEDI-SSH_Derecho/v02/build/lib/python3.10/pyioda"
+# IODA_PATH = Path(__file__).parent/"../../OISSH_JEDI/build/lib/python3.9/pyioda"
+print('IODA_PATH=', IODA_PATH)
 sys.path.append(str(IODA_PATH.resolve()))
 
 # print(str(IODA_CONV_PATH.resolve()))
@@ -185,6 +192,9 @@ def main():
         jday = jday_st
         while jday <= jday_end:
             fdate = datetime.datetime.combine(jday, datetime.time(12))
+
+            str_date = jday.strftime('%Y%m%d')
+            print('current sat and date: ', sat, ', ', str_date)
 
             for hl_pass in ['hp', 'lp']:
                 fn = sat + '_' + jday.strftime('%Y%m%d') + '_' + hl_pass + '.nc'

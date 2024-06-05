@@ -7,8 +7,13 @@
 #PBS  -l select=1:ncpus=1:mpiprocs=1 
 #PBS  -N Fourier
 #PBS  -j oe
-#PBS  -q regular
- 
-python3 FourierFilter.py >&! FourierFilter_01.log
+#PBS  -q main
+#PBS -M lchen2@umd.edu
+
+
+module load conda
+conda activate npl
+
+python3 FourierFilter.py >&! FourierFilter_03.log
  
 exit 0
